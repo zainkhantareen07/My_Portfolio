@@ -1,0 +1,677 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 100px;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+nav ul li a {
+  color: #1d1d24;
+  position: relative;
+  padding: 5px 0;
+}
+
+nav ul li a:hover {
+  color: #fd4766;
+}
+
+nav ul li a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #fd4766;
+  transition: 0.3s;
+  bottom: 0;
+}
+
+nav ul li a:hover:after {
+  width: 100%;
+}
+
+.btn {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 16px 40px;
+  border-radius: 500px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.4s ease-in-out;
+  background-size: 152% 100%;
+  background: #fd4766;
+  border: 2px solid #fd4766;
+}
+
+.btn:hover {
+  background: transparent;
+  border-color: #fd4766;
+  color: #fd4766;
+}
+
+.content {
+  position: absolute;
+  top: 35%;
+  left: 8%;
+}
+
+.content .title {
+  color: #0a0a0a;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  display: inline-block;
+  margin-bottom: 20px;
+  background: linear-gradient(120deg, #1c99fe 20.69%, #7644ff 50.19%, #fd4766 79.69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content h1 {
+  color: #1f1f25;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 90px;
+  width: 70%;
+}
+
+.content h1 span {
+  color: #fd4766;
+}
+
+.content p {
+  width: 55%;
+  color: #202020;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+/* Hero Image */
+.bottom-image-container {
+  margin-top: 30px;
+  margin-left: 900px;
+}
+
+.bottom-image {
+  width: 100%;
+  max-width: 400px;
+  height: 480px;
+  border-radius: 10px;
+  box-shadow: 0 20px 30px black;
+  border: solid palevioletred;
+}
+
+/* Body Background */
+body {
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
+}
+
+/* Contact Section */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 460px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 35px 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.contact-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.contact-card h2 {
+  margin: 10px 0 5px;
+  font-size: 22px;
+  color: #333;
+}
+
+.contact-title {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.contact-card p {
+  font-size: 14px;
+  color: #444;
+  margin: 6px 0;
+}
+
+.contact-card a {
+  color: #fd4766;
+  text-decoration: none;
+}
+
+.centered-socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: grayscale(100%);
+  transition: 0.3s;
+}
+
+.social-icons img:hover {
+  filter: grayscale(0%);
+}
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 60px;
+  color: #fd4766;
+}
+
+/* === Gallery === */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px 80px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 2px solid #fd4766;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform: scale(0.95);
+}
+
+.gallery img:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* === Skills & Hobbies === */
+.skills-container,
+.hobbies-container {
+  padding: 40px 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.skill,
+.hobby {
+  text-align: center;
+  padding: 20px;
+  width: 150px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.skill:hover,
+.hobby:hover {
+  transform: translateY(-5px);
+}
+
+.skill i {
+  font-size: 40px;
+  color: #fd4766;
+  margin-bottom: 10px;
+}
+
+.hobby {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* === Feedback Form === */
+.feedback-section {
+  padding: 60px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feedback-form label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  padding: 12px 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  transition: border 0.3s;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  border-color: #fd4766;
+  outline: none;
+}
+
+.feedback-form button {
+  align-self: flex-start;
+}
+
+/* === Help Section === */
+.help-section {
+  padding: 60px 80px;
+  background: #f5f7fa;
+}
+
+.help-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.help-intro {
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.help-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.help-card {
+  flex: 1 1 300px;
+  background: #ffffff;
+  padding: 25px 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.help-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.help-card h3 {
+  font-size: 20px;
+  color: #fd4766;
+  margin-bottom: 12px;
+}
+
+.help-card p,
+.help-card ul {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.help-card ul {
+  padding-left: 18px;
+}
+
+/* === Albums === */
+.album {
+  padding: 20px 40px;
+}
+
+.album-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* === Video Gallery === */
+.video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 80px;
+}
+
+.video-gallery video {
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 2px solid #fd4766;
+  width: 100%;
+  max-width: 320px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform: scale(0.95);
+}
+
+.video-gallery video:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* === Modal for Profile Image === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  border: 3px solid #fd4766;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #fd4766;
+}
+
+.social-icons img {
+  width: 36px;
+  height: 36px;
+  margin: 0 10px;
+  filter: grayscale(100%);
+  transition: 0.3s ease;
+}
+
+.social-icons img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* === Sign Up Section === */
+.signup-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  padding: 40px 20px;
+}
+
+.signup-box {
+  background: #fff;
+  padding: 40px 35px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.signup-box h2 {
+  color: #fd4766;
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  position: relative;
+}
+
+.signup-box h2::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #fd4766;
+  display: block;
+  margin: 8px auto 0;
+  border-radius: 50px;
+}
+
+.signup-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.signup-box label {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.signup-box input[type="text"],
+.signup-box input[type="email"],
+.signup-box input[type="password"] {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+.signup-box input:focus {
+  outline: none;
+  border-color: #fd4766;
+  box-shadow: 0 0 5px rgba(253, 71, 102, 0.3);
+}
+
+.signup-btn {
+  background-color: #fd4766;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 500px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.signup-btn:hover {
+  background-color: transparent;
+  color: #fd4766;
+  border: 2px solid #fd4766;
+}
+
+.signup-box .login-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.signup-box .login-link a {
+  color: #fd4766;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.signup-box .login-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .signup-box {
+    padding: 30px 20px;
+  }
+
+  .signup-btn {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* Container for login form */
+.form-container {
+  max-width: 400px;
+  background: #fff;
+  margin: 80px auto;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+/* Heading */
+.form-container h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fd4766;
+  margin-bottom: 30px;
+}
+
+/* Inputs */
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.form-container input[type="email"]:focus,
+.form-container input[type="password"]:focus {
+  border-color: #fd4766;
+  outline: none;
+}
+
+/* Button */
+.form-container button {
+  width: 100%;
+  padding: 16px 0;
+  background: #fd4766;
+  border: none;
+  border-radius: 500px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+.form-container button:hover {
+  background: transparent;
+  border: 2px solid #fd4766;
+  color: #fd4766;
+}
+
+/* Signup link */
+.signup-link {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+.signup-link a {
+  color: #fd4766;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+  color: #7644ff;
+}
+

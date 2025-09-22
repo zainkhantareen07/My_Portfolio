@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <link rel="shortcut icon" href="../media/zain2.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <img src="../media/zain2.png" class="logo" />
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="help.html">Help</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="../myresume/zainresume.pdf" class="btn" target="_blank">Resume</a>
+  </nav>
+
+  <!-- Feedback Section -->
+  <div class="feedback-section">
+    <h2 class="section-title">We value your feedback!</h2>
+    <form class="feedback-form" action="#" method="post">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required placeholder="Enter your name" />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email" />
+
+      <label for="message">Your Feedback</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Write your feedback..."></textarea>
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
