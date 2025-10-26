@@ -1,0 +1,118 @@
+<?php
+session_start();
+
+// Redirect if user is not logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../assets/login.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Zain Khan Tareen</title>
+  <link rel="stylesheet" href="../pages/style.css" />
+  <link rel="shortcut icon" href="../media/icon.jpeg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="../media/zain.jpg" alt="logo" class="logo">
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="home.php">Home</a></li>
+        <li><a href="curriculum-vitae.php">Curriculum Vitae</a></li>
+        <li><a href="feedback.php">Feedback</a></li>
+        <li><a href="help.php">Help</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li><a href="../assets/logout.php">Logout</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="../myresume/zainresume.pdf" class="btn" target="_blank">Resume</a>
+
+        <!-- hamburger for mobile -->
+        <button id="mobile-menu" class="menu-toggle" aria-label="Toggle menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== 📬 Contact Section ===== -->
+  <section class="contact-section">
+    <h2 class="section-title">📬 Contact Me</h2>
+
+    <p style="text-align: center; max-width: 700px; margin: 0 auto; color: #333; font-size: 16px;">
+      Let's connect! Whether you have a question, a project idea, or just want to say hello — I'm always open to talking.
+    </p>
+
+    <!-- Social Media Icons -->
+    <div class="social-icons centered-socials" style="margin-top: 30px;">
+      <a href="https://www.facebook.com/ZainKhanTareen07" target="_blank" title="Facebook">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+      </a>
+      <a href="https://www.linkedin.com/in/zain-khan-tareen-020991374" target="_blank" title="LinkedIn">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+      </a>
+      <a href="https://github.com/zainkhantareen07" target="_blank" title="GitHub">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" />
+      </a>
+      <a href="https://twitter.com/zainkhantareen8" target="_blank" title="Twitter">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+      </a>
+      <a href="https://wa.me/923142388995" target="_blank" title="Chat with me on WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+      </a>
+      <a href="https://instagram.com/zainkhantareen07" target="_blank" title="Follow me on Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+    </div>
+
+    <!-- Email Button -->
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="mailto:zk344693@gmail.com" class="btn" title="Send me an email">Send Me an Email</a>
+    </div>
+  </section>
+
+  <!-- ===== JS for Mobile Menu ===== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menu = document.getElementById("mobile-menu");
+      const navMenu = document.querySelector(".nav-menu");
+
+      if (!menu || !navMenu) return;
+
+      menu.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        menu.classList.toggle("active");
+      });
+
+      navMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+          menu.classList.remove("active");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && !navMenu.contains(e.target)) {
+          navMenu.classList.remove("active");
+          menu.classList.remove("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

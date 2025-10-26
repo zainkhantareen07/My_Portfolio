@@ -1,0 +1,409 @@
+<?php
+session_start();
+
+// Redirect if user is not logged in
+if (!isset($_SESSION['user_id'])) {
+  header("Location: ../assets/login.php");
+  exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum Vitae - Zain Khan Tareen</title>
+  <link rel="stylesheet" href="../pages/style.css" />
+  <link rel="shortcut icon" href="../media/icon.jpeg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <style>
+    /* Keep all your existing inline CSS */
+    .section-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .info-container,
+    .list,
+    .skills-container {
+      text-align: center;
+    }
+
+    .info-card p,
+    .info-card h3,
+    .list li,
+    .skills-container p {
+      text-align: center;
+      margin: 5px 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      text-align: center;
+      margin: 40px auto;
+      width: 90%;
+    }
+
+    .skill-box {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      border: #007bff 1px solid;
+    }
+
+    .skill-box i {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .skill-box h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .skill-level {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      width: 100%;
+      height: 8px;
+      background: #eee;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .bar div {
+      height: 100%;
+      background: #0078ff;
+      border-radius: 5px;
+    }
+
+    .skills-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .expertise-list {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .expertise-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .expertise-list li {
+      background: #ffffff;
+      margin: 10px 0;
+      padding: 12px 18px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      font-size: 16px;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .expertise-list li:hover {
+      background: #f0f8ff;
+      transform: translateY(-4px);
+      color: #0078ff;
+      border: #007bff 1px solid;
+    }
+
+    .languages-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .language-box {
+      width: 250px;
+      background: #f5f5f5;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-box h3 {
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #333;
+    }
+    .language-box:hover {
+      background: #e0f0ff;
+      transform: translateY(-4px);
+      color: #0078ff;
+      border: #007bff 1px solid;
+    }
+    .bar {
+      background: #ddd;
+      border-radius: 20px;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .bar div {
+      height: 100%;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #007bff, #00c6ff);
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="../media/zain.jpg" alt="logo" class="logo">
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="home.php">Home</a></li>
+        <li><a href="curriculum-vitae.php">Curriculum Vitae</a></li>
+        <li><a href="feedback.php">Feedback</a></li>
+        <li><a href="help.php">Help</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li><a href="../assets/logout.php">Logout</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="../myresume/zainresume.pdf" class="btn" target="_blank">Resume</a>
+
+        <!-- hamburger for mobile -->
+        <button id="mobile-menu" class="menu-toggle" aria-label="Toggle menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🏫 Education -->
+  <h2 class="section-title">🎓 Education / Academic Background</h2>
+  <div class="info-container">
+    <!-- Education cards -->
+    <div class="info-card">
+      <h3>BS Software Engineering</h3>
+      <p><strong>University:</strong> Balochistan University of Information Technology and Management, Quetta (BUITEMS)</p>
+      <p><strong>Duration:</strong> Nov 2024 - Present</p>
+    </div>
+    <div class="info-card"><br>
+      <h3>Intermediate (F.Sc Pre-Engineering)</h3>
+      <p><strong>Institution:</strong> Government Post Graduate Science College, Quetta</p>
+      <p><strong>Duration:</strong> 2021 - 2023</p>
+      <p><strong>Percentage:</strong> 86%</p>
+    </div>
+    <div class="info-card"><br>
+      <h3>Matriculation (Science)</h3>
+      <p><strong>Institution:</strong> Eagle's Nest English Public High School, Pishin</p>
+      <p><strong>Duration:</strong> 2019 - 2021</p>
+      <p><strong>Percentage:</strong> 90%</p>
+    </div>
+  </div>
+
+  <!-- 💼 Work Experience -->
+  <h2 class="section-title">💼 Work Experience</h2>
+  <div class="info-container">
+    <!-- Work cards -->
+    <div class="info-card">
+      <h3>Frontend Web Developer</h3>
+      <p><strong>"Personal Projects & Learning"</strong></p>
+      <p>Actively building expertise in modern web technologies (HTML5, CSS3, JavaScript). Creating responsive web designs, practicing UI/UX principles, and developing portfolio projects. Committed to mastering frontend frameworks and seeking opportunities to contribute to innovative web solutions.</p>
+    </div><br>
+    <div class="info-card">
+      <h3>Network Administrator/Computer Networking</h3>
+      <p><strong>"Self-Learning & Certification Path"</strong></p>
+      <p>Passionate learner in CISCO, HUAWEI, and IBM networking technologies. Developing hands-on experience with network configurations, routing protocols, and system administration through practical labs and simulation environments. Eager to apply these skills in a professional setting.</p>
+    </div>
+  </div>
+
+  <!-- 🏆 Achievements -->
+  <h2 class="section-title">🏆 Achievements</h2>
+  <ul class="list">
+    <!-- Achievement list items -->
+    <li>Certified in Computer Administration (CISCO, HUAWEI, IBM)</li>
+    <li>Certified Network Associate (CISCO - CCNA Fundamentals)</li>
+    <li>Certificate in Web Development (HTML, CSS, JavaScript)</li>
+    <li>Certified in Computer Information Technology (CIT)</li>
+    <li>Certified With Best Performer and Student Award in School and College</li>
+  </ul>
+
+  <!-- 💡 Expertise -->
+  <h2 class="section-title">💡 Expertise In</h2>
+  <div class="expertise-list">
+    <ul>
+      <!-- Expertise list items -->
+      <li>Network Administration (CISCO, CCNA, HUAWEI, IBM)</li>
+      <li>Diploma in Computer Information Technology</li>
+      <li>Diploma in Computer Networking</li>
+      <li>Basic Software Development & Programming</li>
+      <li>Front-End Web Development</li>
+      <li>Software Engineering Awareness</li>
+      <li>Basics of Database Management</li>
+      <li>Basics of Software Programming Languages</li>
+      <li>Microsoft Office Suite and Productivity Tools</li>
+      <li>Problem-solving Skills & Logic Building</li>
+      <li>Client Communication</li>
+      <li>Quick Problem Solving</li>
+    </ul>
+  </div>
+
+  <!-- 🛠️ Skills -->
+  <h2 class="section-title">🛠️ Skills</h2>
+  <div class="skills-grid">
+    <!-- Skill boxes -->
+    <div class="skill-box"> <i class="devicon-html5-plain colored"></i>
+      <h3>HTML5</h3>
+      <div class="skill-level">95%</div>
+      <div class="bar">
+        <div style="width: 95%;"></div>
+      </div>
+    </div>
+    <div class="skill-box"> <i class="devicon-css3-plain colored"></i>
+      <h3>CSS3</h3>
+      <div class="skill-level">80%</div>
+      <div class="bar">
+        <div style="width: 80%;"></div>
+      </div>
+    </div>
+    <div class="skill-box"> <i class="devicon-javascript-plain colored"></i>
+      <h3>JavaScript</h3>
+      <div class="skill-level">65%</div>
+      <div class="bar">
+        <div style="width: 65%;"></div>
+      </div>
+    </div>
+    <div class="skill-box"> <i class="devicon-java-plain colored"></i>
+      <h3>Java</h3>
+      <div class="skill-level">50%</div>
+      <div class="bar">
+        <div style="width: 50%;"></div>
+      </div>
+    </div>
+    <div class="skill-box"> <i class="devicon-cplusplus-plain colored"></i>
+      <h3>C++</h3>
+      <div class="skill-level">55%</div>
+      <div class="bar">
+        <div style="width: 55%;"></div>
+      </div>
+    </div>
+    <div class="skill-box"> <i class="devicon-php-plain colored"></i>
+      <h3>PHP</h3>
+      <div class="skill-level">45%</div>
+      <div class="bar">
+        <div style="width: 45%;"></div>
+      </div>
+    </div>
+    <div class="skill-box"> <i class="devicon-networking-plain colored"></i>
+      <h3>Network Administration / Computer Networking (CISCO, HUAWEI, IBM)</h3>
+      <div class="skill-level">25%</div>
+      <div class="bar">
+        <div style="width: 25%;"></div>
+      </div>
+    </div>
+    <div class="skill-box"> <i class="devicon-mysql-plain colored"></i>
+      <h3>MySQL</h3>
+      <div class="skill-level">15%</div>
+      <div class="bar">
+        <div style="width: 15%;"></div>
+      </div>
+    </div>
+    <div class="skill-box"> <i class="devicon-git-plain colored"></i>
+      <h3>Git</h3>
+      <div class="skill-level">10%</div>
+      <div class="bar">
+        <div style="width: 10%;"></div>
+      </div>
+    </div>
+    <div class="skill-box"> <i class="devicon-github-original colored"></i>
+      <h3>GitHub</h3>
+      <div class="skill-level">25%</div>
+      <div class="bar">
+        <div style="width: 25%;"></div>
+      </div>
+    </div>
+
+    <!-- 🌐 Languages -->
+    <h2 class="section-title">🌐 Languages</h2>
+    <div class="languages-grid">
+      <!-- Language boxes -->
+      <div class="language-box">
+        <h3>Pashto</h3>
+        <div class="skill-level">100%</div>
+        <div class="bar">
+          <div style="width: 100%;"></div>
+        </div>
+      </div>
+      <div class="language-box">
+        <h3>English</h3>
+        <div class="skill-level">85%</div>
+        <div class="bar">
+          <div style="width: 85%;"></div>
+        </div>
+      </div>
+      <div class="language-box">
+        <h3>Urdu</h3>
+        <div class="skill-level">90%</div>
+        <div class="bar">
+          <div style="width: 90%;"></div>
+        </div>
+      </div>
+
+      <!-- ===== Mobile Navbar Script ===== -->
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const menu = document.getElementById("mobile-menu");
+          const navMenu = document.querySelector(".nav-menu");
+
+          if (!menu || !navMenu) return;
+
+          menu.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            menu.classList.toggle("active");
+          });
+
+          navMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+              navMenu.classList.remove("active");
+              menu.classList.remove("active");
+            });
+          });
+
+          document.addEventListener("click", (e) => {
+            if (!menu.contains(e.target) && !navMenu.contains(e.target)) {
+              navMenu.classList.remove("active");
+              menu.classList.remove("active");
+            }
+          });
+        });
+      </script>
+
+</body>
+
+</html>
