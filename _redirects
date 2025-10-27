@@ -1,0 +1,10 @@
+/pages/home.php /pages/home.html 200
+/pages/curriculum-vitae.php /pages/curriculum-vitae.html 200
+/pages/feedback.php /pages/feedback.html 200
+/pages/help.php /pages/help.html 200
+/pages/contact.php /pages/contact.html 200
+/assets/login.php /pages/login.html 301
+/assets/signup.php /pages/signup.html 301
+/assets/logout.php / 301
+/assets/reset_password.php /pages/reset_password.html 301
+/assets/update_password.php / 301
